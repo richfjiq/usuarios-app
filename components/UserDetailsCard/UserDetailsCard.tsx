@@ -4,7 +4,13 @@ import { useUserById } from '../../hooks';
 import { Loading } from '../Loading';
 import { UserData } from '../../interfaces';
 import { styles } from './styles';
-import { AntDesign, Feather, MaterialCommunityIcons } from '@expo/vector-icons';
+import {
+  AntDesign,
+  Feather,
+  FontAwesome5,
+  MaterialCommunityIcons,
+} from '@expo/vector-icons';
+import Animated, { ZoomIn } from 'react-native-reanimated';
 
 interface Props {
   userId: string;
@@ -24,7 +30,8 @@ const UserDetailsCard: FC<Props> = ({ userId, profession, description }) => {
   const { first_name, last_name, email, avatar } = user as UserData;
 
   return (
-    <View
+    <Animated.View
+      entering={ZoomIn}
       style={{
         width: Dimensions.get('window').width - 40,
         ...styles.container,
@@ -44,6 +51,11 @@ const UserDetailsCard: FC<Props> = ({ userId, profession, description }) => {
       </View>
 
       <View style={styles.row}>
+        <FontAwesome5 name="user" size={35} color="black" style={styles.icon} />
+        <Text style={styles.email}>{profession}</Text>
+      </View>
+
+      <View style={styles.row}>
         <MaterialCommunityIcons
           name="email-outline"
           size={35}
@@ -57,7 +69,7 @@ const UserDetailsCard: FC<Props> = ({ userId, profession, description }) => {
         <Feather name="info" size={35} color="black" style={styles.icon} />
         <Text style={styles.description}>{description}</Text>
       </View>
-    </View>
+    </Animated.View>
   );
 };
 

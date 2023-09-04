@@ -2,7 +2,7 @@ import { FC, useEffect } from 'react';
 import { useLocalSearchParams, useNavigation } from 'expo-router';
 
 import { UserDetailsCard } from '../components';
-import { Dimensions, StyleSheet, View } from 'react-native';
+import { Dimensions, ScrollView, StyleSheet } from 'react-native';
 
 const User: FC = () => {
   const navigation = useNavigation();
@@ -17,7 +17,7 @@ const User: FC = () => {
   }, []);
 
   return (
-    <View
+    <ScrollView
       style={{ width: Dimensions.get('window').width, ...styles.container }}
     >
       <UserDetailsCard
@@ -25,13 +25,15 @@ const User: FC = () => {
         profession={profession as string}
         description={description as string}
       />
-    </View>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    padding: 20,
+    paddingHorizontal: 20,
+    paddingTop: 20,
+    paddingBottom: 50,
   },
 });
 

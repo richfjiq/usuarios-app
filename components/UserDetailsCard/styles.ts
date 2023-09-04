@@ -7,17 +7,15 @@ export const styles = StyleSheet.create({
     padding: 20,
     paddingTop: 0,
     borderRadius: 10,
-    backgroundColor: '#EEEDED',
+    backgroundColor: 'rgba(247, 109, 2, 0.11)',
     borderWidth: 0.5,
-    shadowColor: '#171717',
-    shadowOffset: { width: -2, height: 4 },
-    shadowOpacity: 0.2,
-    shadowRadius: 3,
+    borderColor: 'rgba(247, 109, 2, 0.9)',
+    marginBottom: 50,
   },
   image: {
     borderRadius: 10,
     marginBottom: 40,
-    marginTop: 20,
+    marginTop: 40,
   },
   row: {
     flexDirection: 'row',
@@ -35,17 +33,18 @@ export const styles = StyleSheet.create({
   },
   name: {
     fontWeight: '600',
-    fontSize: 30,
+    fontSize: 28,
   },
   email: {
     fontWeight: '400',
-    fontSize: 20,
+    fontSize: 18,
     flex: 1,
   },
   description: {
     fontWeight: '400',
-    fontSize: 20,
+    fontSize: 18,
     flex: 1,
     textAlign: 'justify',
+    paddingRight: 5,
   },
 });

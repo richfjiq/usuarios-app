@@ -3,29 +3,29 @@ import { usersApi } from '../api';
 import { User, UsersResponse } from '../interfaces';
 import { isAxiosError } from 'axios';
 
+const USER_DESCRIPTION =
+  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
+
+const PROFESSION = [
+  'Front End Developer',
+  'Back End Developer',
+  'Full Stack Developer',
+  'HR Specialist',
+  'iOS Developer',
+  'Android Developer',
+  'Recruiter',
+  'HR Manager',
+  'Senior Recruiter',
+  'Graphic Designer',
+  'HR Specialist',
+  'Recruiter',
+];
+
 export const useUsers = () => {
   const [users, setUsers] = useState<User[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const url = 'https://reqres.in/api';
-
-  const USER_DESCRIPTION =
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
-
-  const PROFESSION = [
-    'Front End Developer',
-    'Back End Developer',
-    'Full Stack Developer',
-    'HR Specialist',
-    'iOS Developer',
-    'Android Developer',
-    'Recruiter',
-    'HR Manager',
-    'Senior Recruiter',
-    'Graphic Designer',
-    'HR Specialist',
-    'Recruiter',
-  ];
 
   const getUsers = useCallback(async () => {
     try {
@@ -41,7 +41,6 @@ export const useUsers = () => {
           user['profession'] = PROFESSION[index];
           return user;
         });
-      console.log({ sortedUsers });
 
       setUsers(sortedUsers);
       setLoading(false);

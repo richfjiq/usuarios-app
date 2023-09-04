@@ -27,6 +27,7 @@ const StackLayout = () => {
         name="[userId]"
         options={{
           headerTitleStyle: { fontSize: 24 },
+          contentStyle: { backgroundColor: '#FFF6F4' },
         }}
       />
     </Stack>

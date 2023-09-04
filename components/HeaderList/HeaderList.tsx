@@ -1,11 +1,12 @@
-import { Text, View } from 'react-native';
+import { Text } from 'react-native';
 import { styles } from './styles';
+import Animated, { FadeInUp } from 'react-native-reanimated';
 
 const HeaderList = () => {
   return (
-    <View style={styles.container}>
+    <Animated.View style={styles.container} entering={FadeInUp}>
       <Text style={styles.header}>Listado de Usuarios</Text>
-    </View>
+    </Animated.View>
   );
 };
 

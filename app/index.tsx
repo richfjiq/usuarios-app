@@ -1,16 +1,17 @@
 import { FC } from 'react';
-import {
-  FlatList,
-  StyleSheet,
-  SafeAreaView,
-  View,
-  Dimensions,
-} from 'react-native';
-import { useUsers } from '../hooks';
+import { FlatList, StyleSheet, SafeAreaView, Dimensions } from 'react-native';
+import Animated, { FadeInDown } from 'react-native-reanimated';
+
 import { HeaderList, Loading, UserCard } from '../components';
+import { useUsers } from '../hooks';
 
 const ItemSeparator = () => {
-  return <View style={styles.separator} />;
+  return (
+    <Animated.View
+      style={styles.separator}
+      entering={FadeInDown.duration(500)}
+    />
+  );
 };
 
 const App: FC = () => {
@@ -34,6 +35,7 @@ const App: FC = () => {
             lastName={item.last_name}
             image={item.avatar}
             index={index}
+            profession={item.profession}
           />
         )}
         keyExtractor={(item) => String(item?.id)}

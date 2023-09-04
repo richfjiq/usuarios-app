@@ -34,7 +34,12 @@ export const styles = StyleSheet.create({
     // alignSelf: 'flex-end',
   },
   name: {
-    fontWeight: '500',
+    fontWeight: '600',
     fontSize: 20,
+    marginBottom: 5,
+  },
+  profession: {
+    fontWeight: '400',
+    fontSize: 18,
   },
 });

@@ -1,31 +1,27 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { usersApi } from '../api';
-import { User, UserResponse, UsersResponse } from '../interfaces';
+import { UserData, UserResponse } from '../interfaces';
 import { isAxiosError } from 'axios';
 
-export const useUsers = ({ id }: { id: string }) => {
-  const [user, setUser] = useState<User>(undefined);
+export const useUserById = () => {
+  const [user, setUser] = useState<UserData>();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const url = 'https://reqres.in/api';
 
-  const getUser = useCallback(async () => {
+  const getUser = useCallback(async (userId: string) => {
     try {
       setLoading(true);
-      const resp = await usersApi.get<UserResponse>(`${url}/users/${id}`);
+      const resp = await usersApi.get<UserResponse>(`${url}/users/${userId}`);
       setUser(resp.data.data);
       setLoading(false);
     } catch (error) {
       if (isAxiosError(error)) {
-        console.log(error.response.data);
+        console.log(error?.response?.data);
         setError(true);
         setLoading(false);
       }
     }
-  }, [id]);
-
-  useEffect(() => {
-    getUser();
   }, []);
 
   return {

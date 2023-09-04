@@ -36,6 +36,7 @@ const App: FC = () => {
             image={item.avatar}
             index={index}
             profession={item.profession}
+            description={item.description}
           />
         )}
         keyExtractor={(item) => String(item?.id)}

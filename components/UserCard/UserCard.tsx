@@ -13,6 +13,7 @@ interface Props {
   image: string;
   index: number;
   profession: string;
+  description: string;
 }
 
 const UserCard: FC<Props> = ({
@@ -22,6 +23,7 @@ const UserCard: FC<Props> = ({
   image,
   index,
   profession,
+  description,
 }) => {
   let animation = BounceInLeft.duration(1000);
   if ((index + 1) % 2 !== 0) {
@@ -30,7 +32,13 @@ const UserCard: FC<Props> = ({
 
   return (
     <Animated.View entering={animation}>
-      <Link href={`/${id}`} asChild>
+      <Link
+        href={{
+          pathname: `/${id}`,
+          params: { name: firstName, profession, description },
+        }}
+        asChild
+      >
         <TouchableOpacity style={styles.container}>
           <View style={styles.user}>
             <View>

@@ -6,7 +6,7 @@ const Loading = () => {
     <View
       style={{
         width: Dimensions.get('window').width,
-        height: Dimensions.get('window').height - 85,
+        height: Dimensions.get('window').height - 120,
         ...styles.container,
       }}
     >

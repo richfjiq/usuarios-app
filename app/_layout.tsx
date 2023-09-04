@@ -15,8 +15,20 @@ const StackLayout = () => {
         },
       }}
     >
-      <Stack.Screen name="index" options={{ headerTitle: 'Users' }} />
-      <Stack.Screen name="[userId]" options={{ headerTitle: 'User' }} />
+      <Stack.Screen
+        name="index"
+        options={{
+          headerTitle: 'Empleados',
+          headerTitleStyle: { fontSize: 24 },
+          contentStyle: { backgroundColor: '#FFF6F4' },
+        }}
+      />
+      <Stack.Screen
+        name="[userId]"
+        options={{
+          headerTitleStyle: { fontSize: 24 },
+        }}
+      />
     </Stack>
   );
 };
